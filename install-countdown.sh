@@ -38,7 +38,7 @@ $cloning
 `mv CountdownScript/countdown.sh CountdownScript/countdown`
 `chmod 777 CountdownScript/countdown`
 
-## Writing in Enviroment Variables
+## Setting Enviroment Variables
 
 `touch /etc/profile.d/countdown.sh`
 set_profile="/etc/profile.d/countdown.sh"
