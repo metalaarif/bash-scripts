@@ -15,17 +15,17 @@ echo "OS Running:" $release
 
 ## Checking if git is installed if not it will install it. 
 
-check_install=`dpkg --list git`
-install_git=`apt-get install git -y`
-echo $check_install > /dev/null
-
+`git --help &> /dev/null`		# redirecting all stderr and stdout to /dev/null
 if [ $?  == 0 ]; then
 	echo "Great! git is installed"
 else
-	echo "Installing Git...." $install_git
+	echo "Can't Find Git in the System..Installing Git...."
+	echo `apt-get install git -y` > /dev/null
+	echo "Git Installed"
 fi
 
 ## Creating Directory in /usr/local/bin and clone via git
+echo "Cloning"
 path_to_bin="cd /usr/local/bin"
 cloning="git clone https://github.com/metalaarif/CountdownScript.git"
 $path_to_bin
@@ -39,10 +39,11 @@ $cloning
 `chmod 777 CountdownScript/countdown`
 
 ## Setting Enviroment Variables
-
+echo "Final Touches"
 `touch /etc/profile.d/countdown.sh`
 set_profile="/etc/profile.d/countdown.sh"
 echo "#!/bin/bash" > $set_profile
 echo "export PATH=/usr/local/bin/CountdownScript:$PATH" >> $set_profile
+echo "You're Done"
 
 
