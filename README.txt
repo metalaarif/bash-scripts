@@ -1,5 +1,7 @@
 # Bash Script for countdown
 
+# For Debian, Ubuntu, Linux Mint
+
 # It gives you countdown of your upcoming or past days
 # You can find number of days for birthday, holiday or even how long you've lived in Earth using this script
 
